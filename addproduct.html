@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>addproduct</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // ฟังก์ชั่นแสดงรูปภาพที่ผู้ใช้เลือก
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const imgElement = document.getElementById('preview');
+                imgElement.src = e.target.result; // เปลี่ยนแหล่งที่มาของ <img> tag
+                imgElement.style.display = 'block'; // แสดงรูปภาพที่เลือก
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function (event) {
+            event.preventDefault();  // ป้องกันการส่งฟอร์มแบบปกติ
+
+            const formData = new FormData(this);
+
+            // ส่งข้อมูลผ่าน Ajax
+            fetch('add_product.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);  // แสดงข้อความสำเร็จ
+                        document.getElementById('productForm').reset();  // ล้างข้อมูลฟอร์ม
+                       // window.location.href = 'addproduct.html';  // กลับไปที่หน้า addproduct.html
+                    } else {
+                        alert(data.message);  // แสดงข้อความข้อผิดพลาด
+                    }
+                })
+                .catch(error => {
+                    console.error('เกิดข้อผิดพลาด:', error);
+                });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>เพิ่มสินค้า</h1>
+    <!-- เพิ่ม enctype="multipart/form-data" เพื่อรองรับการอัปโหลดไฟล์ -->
+    <form id="productForm" action="add_product.php" method="post" enctype="multipart/form-data">
+        <label>ชื่อสินค้า</label>
+        <input type="text" name="name" placeholder="name" required><br>
+
+        <label>รูปภาพ</label>
+        <input type="file" id="profile_picture" name="profile_picture" onchange="previewImage(event)"><br>
+
+        <!-- แสดงภาพที่เลือก -->
+        <img id="preview" src="" alt="Image Preview" style="display:none; max-width: 200px; margin-top: 10px;" /><br>
+
+        <label>ราคา</label>
+        <input type="number" name="price" placeholder="price" required><br>
+
+        <label>รายละเอียดเพิ่มเติม</label>
+        <input type="text" name="description" placeholder="description" required><br>
+
+        <label>จำนวน</label>
+        <input type="number" name="stock" placeholder="stock" required><br>
+
+        <label>หมวดหมูู่สินค้า</label>
+        <input type="text" name="category" placeholder="category" required><br>
+
+        <button type="submit">Add</button>
+    </form>
+
+    <h5 class="text-sm text-center text-base-content">
+        go manager-dashboard
+        <a href="manager_dashboard.php" class="text-primary magic-hover magic-hover__square">Dashboard</a>
+    </h5>
+</body>
+
+</html>
