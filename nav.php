@@ -91,27 +91,4 @@ if (isset($_SESSION['cart'])) {
 </script>
 
 
-        <!-- <div>  
-            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-            <a href="admin_dashboard.php" class="text-gray-700 hover:text-blue-500 mx-2">Admin</a>
-            <?php elseif (isset($_SESSION['role']) && $_SESSION['role'] === 'manager'): ?>
-            <a href="manager_dashboard.php" class="text-gray-700 hover:text-blue-500 mx-2">Manager</a>
-            <?php else: ?>
-            <a href="products.php" class="text-gray-700 hover:text-blue-500 mx-2">Products</a>
-            <?php endif; ?>
-
-            <a href="cart.php" class="text-gray-700 hover:text-blue-500 mx-2">
-                Orders 
-                <?php if ($cart_count > 0): ?>
-                    <span class="bg-red-500 text-white rounded-full text-xs px-2 py-1"><?= $cart_count ?></span>
-                <?php endif; ?>
-            </a>
-            <a href="profile.php" class="text-gray-700 hover:text-blue-500 mx-2">Profile</a>
-
-            <?php if (isset($_SESSION['username'])): ?>
-            <a href="logout.php" class="text-gray-700 hover:text-blue-500 mx-2">Logout</a>
-            <?php else: ?>
-            <a href="index.html" class="text-gray-700 hover:text-blue-500 mx-2">Login</a>
-            <?php endif; ?>
-        </div> -->
-   
+        
