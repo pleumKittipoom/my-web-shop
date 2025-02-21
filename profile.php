@@ -33,48 +33,48 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>โปรไฟล์ผู้ใช้</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100" style="background: url('https://wallpapercave.com/wp/wp3837811.jpg') no-repeat center center fixed; background-size: cover;">
 
-    <div class="max-w-4xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-10">
-        <h1 class="text-3xl font-semibold text-gray-800 text-center mb-6">ข้อมูลโปรไฟล์</h1>
+    <div class="max-w-2xl mx-auto p-8 bg-white/20 shadow-lg rounded-lg mt-4">
+        <h1 class="text-3xl font-semibold text-gray-800 text-center text-white mb-6">ข้อมูลโปรไฟล์</h1>
 
         <div class="space-y-4">
             <div class="flex items-center justify-between">
-                <label class="font-medium text-gray-700 w-1/3">ชื่อผู้ใช้:</label>
-                <p class="text-gray-600 w-2/3"><?php echo htmlspecialchars($user['username']); ?></p>
+                <label class="font-medium text-white w-1/3">ชื่อผู้ใช้:</label>
+                <p class="text-white w-2/3"><?php echo htmlspecialchars($user['username']); ?></p>
             </div>
 
             <div class="flex items-center justify-between">
-                <label class="font-medium text-gray-700 w-1/3">ชื่อจริง:</label>
-                <p class="text-gray-600 w-2/3"><?php echo htmlspecialchars($user['first_name']); ?></p>
+                <label class="font-medium text-white w-1/3">ชื่อจริง:</label>
+                <p class="text-white w-2/3"><?php echo htmlspecialchars($user['first_name']); ?></p>
             </div>
 
             <div class="flex items-center justify-between">
-                <label class="font-medium text-gray-700 w-1/3">นามสกุล:</label>
-                <p class="text-gray-600 w-2/3"><?php echo htmlspecialchars($user['last_name']); ?></p>
+                <label class="font-medium text-white w-1/3">นามสกุล:</label>
+                <p class="text-white w-2/3"><?php echo htmlspecialchars($user['last_name']); ?></p>
             </div>
 
             <div class="flex items-center justify-between">
-                <label class="font-medium text-gray-700 w-1/3">เพศ:</label>
-                <p class="text-gray-600 w-2/3"><?php echo htmlspecialchars($user['sex'] == 'Male' ? 'ชาย' : 'หญิง'); ?></p>
+                <label class="font-medium text-white w-1/3">เพศ:</label>
+                <p class="text-white w-2/3"><?php echo htmlspecialchars($user['sex'] == 'Male' ? 'ชาย' : 'หญิง'); ?></p>
             </div>
 
             <div class="flex items-center justify-between">
-                <label class="font-medium text-gray-700 w-1/3">อายุ:</label>
-                <p class="text-gray-600 w-2/3"><?php echo htmlspecialchars($user['age']); ?> ปี</p>
+                <label class="font-medium text-white w-1/3">อายุ:</label>
+                <p class="text-white w-2/3"><?php echo htmlspecialchars($user['age']); ?> ปี</p>
             </div>
 
             <div class="flex items-center justify-between">
-                <label class="font-medium text-gray-700 w-1/3">จังหวัด:</label>
-                <p class="text-gray-600 w-2/3"><?php echo htmlspecialchars($user['province']); ?></p>
+                <label class="font-medium text-white w-1/3">จังหวัด:</label>
+                <p class="text-white w-2/3"><?php echo htmlspecialchars($user['province']); ?></p>
             </div>
 
             <div class="flex items-center justify-between">
-                <label class="font-medium text-gray-700 w-1/3">อีเมล:</label>
-                <p class="text-gray-600 w-2/3"><?php echo htmlspecialchars($user['email']); ?></p>
+                <label class="font-medium text-white w-1/3">อีเมล:</label>
+                <p class="text-white w-2/3"><?php echo htmlspecialchars($user['email']); ?></p>
             </div>
         </div>
 

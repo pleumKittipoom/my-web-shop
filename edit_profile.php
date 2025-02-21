@@ -54,30 +54,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แก้ไขโปรไฟล์</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100" style="background: url('https://wallpapercave.com/wp/wp3837811.jpg') no-repeat center center fixed; background-size: cover;">
 
-    <div class="max-w-4xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-10">
-        <h1 class="text-3xl font-semibold text-gray-800 text-center mb-6">แก้ไขโปรไฟล์</h1>
+    <div class="max-w-2xl mx-auto p-8 bg-white/20 shadow-lg rounded-lg mt-10">
+        <h1 class="text-3xl font-bold text-white text-center mb-6">แก้ไขโปรไฟล์</h1>
 
         <form method="POST">
             <div class="space-y-4">
                 <div class="flex items-center justify-between">
-                    <label class="font-medium text-gray-700 w-1/3">ชื่อจริง:</label>
+                    <label class="font-medium text-white w-1/3">ชื่อจริง:</label>
                     <input type="text" name="first_name" value="<?php echo htmlspecialchars($user['first_name']); ?>"
                         class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required />
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <label class="font-medium text-gray-700 w-1/3">นามสกุล:</label>
+                    <label class="font-medium text-white w-1/3">นามสกุล:</label>
                     <input type="text" name="last_name" value="<?php echo htmlspecialchars($user['last_name']); ?>"
                         class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required />
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <label class="font-medium text-gray-700 w-1/3">เพศ:</label>
+                    <label class="font-medium text-white w-1/3">เพศ:</label>
                     <select name="sex"
                         class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <option value="male" <?php echo ($user['sex'] == 'Male') ? 'selected' : ''; ?>>ชาย</option>
@@ -86,13 +86,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <label class="font-medium text-gray-700 w-1/3">อายุ:</label>
+                    <label class="font-medium text-white w-1/3">อายุ:</label>
                     <input type="number" name="age" value="<?php echo htmlspecialchars($user['age']); ?>"
                         class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required />
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <label class="font-medium text-gray-700 w-1/3">จังหวัด:</label>
+                    <label class="font-medium text-white w-1/3">จังหวัด:</label>
                     <select name="province"
                         class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                         <option value="กรุงเทพมหานคร" <?php echo ($user['province'] == 'กรุงเทพมหานคร') ? 'selected' : ''; ?>>กรุงเทพมหานคร</option>
@@ -163,7 +163,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
 
                 <div class="flex items-center justify-between">
-                    <label class="font-medium text-gray-700 w-1/3">อีเมล:</label>
+                    <label class="font-medium text-white w-1/3">อีเมล:</label>
                     <input type="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>"
                         class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required />
                 </div>
@@ -178,7 +178,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
 
         <div class="mt-6 text-center">
-            <a href="profile.php" class="text-gray-600 hover:text-gray-800">ยกเลิก</a>
+            <a href="profile.php" class="text-white hover:text-gray-800">ยกเลิก</a>
         </div>
     </div>
 

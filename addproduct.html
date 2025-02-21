@@ -51,37 +51,37 @@
     </script>
 </head>
 
-<body>
-    <h1>เพิ่มสินค้า</h1>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen" style="background: url('https://wallpapercave.com/wp/wp3837811.jpg') no-repeat center center fixed; background-size: cover;">
+    <h1 style="color: #fff; text-align: center;">เพิ่มสินค้า</h1>
     <!-- เพิ่ม enctype="multipart/form-data" เพื่อรองรับการอัปโหลดไฟล์ -->
     <form id="productForm" action="add_product.php" method="post" enctype="multipart/form-data">
-        <label>ชื่อสินค้า</label>
+        <label style="color: #fff;">ชื่อสินค้า</label>
         <input type="text" name="name" placeholder="name" required><br>
 
-        <label>รูปภาพ</label>
+        <label style="color: #fff;">รูปภาพ</label>
         <input type="file" id="profile_picture" name="profile_picture" onchange="previewImage(event)"><br>
 
         <!-- แสดงภาพที่เลือก -->
         <img id="preview" src="" alt="Image Preview" style="display:none; max-width: 200px; margin-top: 10px;" /><br>
 
-        <label>ราคา</label>
+        <label style="color: #fff;">ราคา</label>
         <input type="number" name="price" placeholder="price" required><br>
 
-        <label>รายละเอียดเพิ่มเติม</label>
+        <label style="color: #fff;">รายละเอียดเพิ่มเติม</label>
         <input type="text" name="description" placeholder="description" required><br>
 
-        <label>จำนวน</label>
+        <label style="color: #fff;">จำนวน</label>
         <input type="number" name="stock" placeholder="stock" required><br>
 
-        <label>หมวดหมูู่สินค้า</label>
+        <label style="color: #fff;">หมวดหมูู่สินค้า</label>
         <input type="text" name="category" placeholder="category" required><br>
 
         <button type="submit">Add</button>
     </form>
 
     <h5 class="text-sm text-center text-base-content">
-        go manager-dashboard
-        <a href="manager_dashboard.php" class="text-primary magic-hover magic-hover__square">Dashboard</a>
+        Back to the Manager page:
+        <a href="manager_dashboard.php" class="text-primary magic-hover magic-hover__square"> Dashboard</a>
     </h5>
 </body>
 

@@ -54,9 +54,9 @@ $result = $conn->query($sql);
     </script>
 </head>
 
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+<body class="bg-gray-100 flex items-center justify-center min-h-screen"  style="background: url('https://wallpapercave.com/wp/wp3837811.jpg') no-repeat center center fixed; background-size: cover;">
 
-    <div class="container mx-auto p-8 bg-white shadow-lg rounded-lg">
+    <div class="container mx-auto p-8 bg-white/80 shadow-lg rounded-lg">
         <h1 class="text-2xl font-bold text-gray-800 mb-4 text-center">รายการสินค้า</h1>
 
         <?php if ($result->num_rows === 0): ?>
