@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - kittipoom</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
   <div class="wrapper">
@@ -36,26 +37,54 @@
     </form>
   </div>
 
-  <!-- JavaScript จัดการ Remember Me -->
+  <!-- JavaScript จัดการ Remember Me และเข้ารหัส Password -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", async function() {
         const usernameInput = document.getElementById("username");
         const passwordInput = document.getElementById("password");
         const rememberCheckbox = document.getElementById("remember");
 
-        // ดึงค่าจาก localStorage ถ้ามี
-        if (localStorage.getItem("remember") === "true") {
+        let secretKey = ""; // จะโหลดจากเซิร์ฟเวอร์
+
+        // ดึง Secret Key จากเซิร์ฟเวอร์
+        async function getSecretKey() {
+            try {
+                const response = await fetch("get_key.php");
+                const data = await response.json();
+                return data.secretKey;
+            } catch (error) {
+                console.error("Error fetching secret key:", error);
+                return null;
+            }
+        }
+
+        // โหลด Secret Key ก่อนใช้งาน
+        secretKey = await getSecretKey();
+
+        // ถอดรหัสข้อมูลใน localStorage ถ้ามี
+        if (localStorage.getItem("remember") === "true" && secretKey) {
             usernameInput.value = localStorage.getItem("username") || "";
-            passwordInput.value = localStorage.getItem("password") || ""; // ให้แสดงรหัสผ่านที่จำไว้
+            const encryptedPassword = localStorage.getItem("password");
+            if (encryptedPassword) {
+                try {
+                    const decryptedPassword = CryptoJS.AES.decrypt(encryptedPassword, secretKey).toString(CryptoJS.enc.Utf8);
+                    passwordInput.value = decryptedPassword;
+                } catch (error) {
+                    console.error("Error decrypting password:", error);
+                }
+            }
             rememberCheckbox.checked = true;
         }
 
         // เมื่อกด Submit ฟอร์ม
         document.getElementById("loginForm").addEventListener("submit", function(event) {
-            if (rememberCheckbox.checked) {
+            if (rememberCheckbox.checked && secretKey) {
                 localStorage.setItem("remember", "true");
                 localStorage.setItem("username", usernameInput.value);
-                localStorage.setItem("password", passwordInput.value); // บันทึก password แบบเดิม (ไม่เข้ารหัส)
+
+                // เข้ารหัส password ก่อนเก็บ
+                const encryptedPassword = CryptoJS.AES.encrypt(passwordInput.value, secretKey).toString();
+                localStorage.setItem("password", encryptedPassword);
             } else {
                 localStorage.removeItem("remember");
                 localStorage.removeItem("username");
