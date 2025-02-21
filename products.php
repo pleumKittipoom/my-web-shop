@@ -119,7 +119,7 @@ $result = $stmt->get_result();
 <body class="bg-gray-100 pt-20">
 
     <div class="container mx-auto p-4">
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
             <?php
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
