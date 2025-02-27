@@ -21,9 +21,9 @@ $stmt = $conn->prepare("DELETE FROM users WHERE id = ?");
 $stmt->bind_param("i", $user_id);
 
 if ($stmt->execute()) {
-    echo "<script>alert('ลบบัญชีลูกค้าสำเร็จ'); window.location.href='showdata.php';</script>";
+    echo "<script>alert('ลบบัญชีลูกค้าสำเร็จ'); window.location.href='admin_dashboard.php';</script>";
 } else {
-    echo "<script>alert('เกิดความผิดพลาดในการลบบัญชีลูกค้า'); window.location.href='showdata.php';</script>";
+    echo "<script>alert('เกิดความผิดพลาดในการลบบัญชีลูกค้า'); window.location.href='admin_dashboard.php';</script>";
 }
 
 // ปิดการเชื่อมต่อ

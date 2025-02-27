@@ -1,6 +1,8 @@
 <?php
+ob_start(); // เริ่ม output buffering
 session_start();
 include 'dbconfig.php';
+include 'nav.php';
 
 // ตรวจสอบการเข้าถึงสำหรับผู้ใช้ที่มีบทบาทเป็น manager
 if (!isset($_SESSION["role"]) || $_SESSION["role"] !== "manager") {
@@ -109,7 +111,6 @@ $stmt->close();
 </head>
 
 <body class="bg-gray-100">
-    <?php include 'nav.html'; ?>
 
     <div class="container mx-auto p-4">
         <br><h1 class="text-2xl font-bold mb-6">แก้ไขข้อมูลสินค้า</h1>
@@ -177,16 +178,12 @@ $stmt->close();
                 }
             </script>
 
-            <button type="submit" class="bg-blue-500 text-white p-2 rounded">บันทึกการแก้ไข</button>
-            <a href="show_products.php" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2">กลับไปดูสินค้าทั้งหมด</a>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded">บันทึกการแก้ไข</button>
+            <a href="manager_dashboard.php" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2">ยกเลิก</a>
         </form>
-        <div class="text-center mt-6">
-            <a href="manager_dashboard.php" class="bg-gray-600 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg">
-                กลับไปหน้าผู้จัดการ
-            </a>
-        </div>
     </div>
 
 </body>
 
 </html>
+<?php ob_end_flush(); // จบ output buffering ?>

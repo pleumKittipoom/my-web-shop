@@ -68,7 +68,7 @@ if (!empty($_SESSION['cart'])) {
 <head>
   <meta charset="UTF-8">
   <title>ตะกร้าสินค้า</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100 p-5">
@@ -113,7 +113,7 @@ if (!empty($_SESSION['cart'])) {
     <a href="products.php" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-800">🛒 ซื้อสินค้าต่อ</a>
     <!-- <a href="cart.php?action=clear" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">🗑️ ล้างตะกร้า</a> -->
     <?php if (!empty($_SESSION['cart'])) : ?>
-      <a href="checkout.php" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">ไปยังการชำระเงิน</a>
+      <a href="checkout.php" class="bg-indigo-500 hover:bg-fuchsia-500 text-white font-bold py-2 px-4 rounded">ชำระเงิน</a>
     <?php endif; ?>
   </div>
 

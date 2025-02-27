@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->bind_param("sssssssi", $first_name, $last_name, $sex, $age, $province, $email, $role, $user_id);
 
     if ($stmt->execute()) {
-        echo "<script>alert('ข้อมูลโปรไฟล์ถูกอัปเดตแล้ว'); window.location.href='showdata.php';</script>";
+        echo "<script>alert('ข้อมูลโปรไฟล์ถูกอัปเดตแล้ว'); window.location.href='admin_dashboard.php';</script>";
     } else {
         echo "<script>alert('เกิดข้อผิดพลาดในการอัปเดตข้อมูล');</script>";
     }
@@ -175,8 +175,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <div class="flex items-center justify-between">
                     <label class="font-medium text-gray-700 w-1/3">role:</label>
-                    <input type="role" name="role" value="<?php echo htmlspecialchars($user['role']); ?>"
-                        class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+                    <select name="role"
+                        class="w-2/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="admin" <?php echo ($user['role'] == 'admin') ? 'selected' : ''; ?>>dmin</option>
+                        <option value="manager" <?php echo ($user['role'] == 'manager') ? 'selected' : ''; ?>>Manager</option>
+                        <option value="customer" <?php echo ($user['role'] == 'customer') ? 'selected' : ''; ?>>Customer</option>
+                    </select>
                 </div>
 
                 <div class="mt-6 text-center">
@@ -189,7 +193,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
 
         <div class="mt-6 text-center">
-            <a href="showdata.php" class="text-gray-600 hover:text-gray-800">ยกเลิก</a>
+            <a href="admin_dashboard.php" class="text-gray-600 hover:text-gray-800">ยกเลิก</a>
         </div>
     </div>
 

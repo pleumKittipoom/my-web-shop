@@ -19,16 +19,16 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
     if ($stmt->execute()) {
         // ลบสำเร็จ
-        header("Location: show_products.php?message=delete_success");
+        header("Location: manager_dashboard.php?message=delete_success");
         exit();
     } else {
         // หากลบไม่สำเร็จ
-        header("Location: show_products.php?message=delete_failed");
+        header("Location: manager_dashboard.php?message=delete_failed");
         exit();
     }
 } else {
     // หากไม่มี id ที่ส่งมา
-    header("Location: show_products.php?message=invalid_request");
+    header("Location: manager_dashboard.php?message=invalid_request");
     exit();
 }
 ?>
