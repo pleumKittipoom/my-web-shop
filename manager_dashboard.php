@@ -24,7 +24,7 @@ $result = $conn->query($sql);
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen" style="background: url('https://wallpapercave.com/wp/wp3837811.jpg') no-repeat center center fixed; background-size: cover;">
 
-    <div class="container mx-auto p-8 bg-white/80 shadow-lg rounded-lg grid grid-cols-1 md:grid-cols-12 gap-4">
+    <div class="container mx-auto p-8 bg-white/80 shadow-lg rounded-lg grid grid-cols-1 md:grid-cols-12 gap-4 my-8">
         
         <!-- Sidebar Manager -->
         <div class="md:col-span-2 p-6 bg-white shadow-lg rounded-lg">
